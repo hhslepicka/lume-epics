@@ -1,468 +1,140 @@
-
 <!DOCTYPE html>
 
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://lume-epics.github.io/Server/" rel="canonical"/>
-<link href="../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.4.0" name="generator"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://slaclab.github.io/lume-epics/Server/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
 <title>Server - lume-epics</title>
-<link href="../assets/stylesheets/main.fe0cca5b.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
-<style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../css/base.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet"/>
+<script defer="" src="../js/jquery-1.10.2.min.js"></script>
+<script defer="" src="../js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
-<body dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#epics-server">
-          Skip to content
-        </a>
-</div>
-<div data-md-component="announce">
-</div>
-<header class="md-header" data-md-component="header">
-<nav aria-label="Header" class="md-header-nav md-grid">
-<a aria-label="lume-epics" class="md-header-nav__button md-logo" href="https://lume-epics.github.io/" title="lume-epics">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+<body>
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+<a class="navbar-brand" href="..">lume-epics</a>
+<!-- Expander button -->
+<button class="navbar-toggler" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Expanded navigation -->
+<div class="navbar-collapse collapse" id="navbar-collapse">
+<!-- Main navigation -->
+<ul class="nav navbar-nav">
+<li class="navitem">
+<a class="nav-link" href="..">Overview</a>
+</li>
+<li class="navitem">
+<a class="nav-link" href="../Install/">Install</a>
+</li>
+<li class="dropdown">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tutorial <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li>
+<a class="dropdown-item" href="../BokehServer/">Bokeh Server</a>
+</li>
+<li>
+<a class="dropdown-item" href="../Jupyter/">Jupyter Notebook Demo</a>
+</li>
+</ul>
+</li>
+<li class="dropdown active">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Documentation <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li>
+<a class="dropdown-item" href="../Layout/">Layout</a>
+</li>
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="#">Client</a>
+<ul class="dropdown-menu">
+<li>
+<a class="dropdown-item" href="../Controller/">Controller</a>
+</li>
+<li>
+<a class="dropdown-item" href="../Monitors/">Monitors</a>
+</li>
+<li>
+<a class="dropdown-item" href="../Widgets/">Widgets</a>
+</li>
+</ul>
+</li>
+<li>
+<a class="dropdown-item" href="../Model/">Model</a>
+</li>
+<li>
+<a class="dropdown-item active" href="./">Server</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="../Model/" rel="prev">
+<i class="fa fa-arrow-left"></i> Previous
+                                </a>
+</li>
+<li class="nav-item">
+<a class="nav-link disabled" rel="next">
+                                    Next <i class="fa fa-arrow-right"></i>
 </a>
-<label class="md-header-nav__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
-</label>
-<div class="md-header-nav__title" data-md-component="header-title">
-<div class="md-header-nav__ellipsis">
-<span class="md-header-nav__topic md-ellipsis">
-            lume-epics
-          </span>
-<span class="md-header-nav__topic md-ellipsis">
-            
-              Server
-            
-          </span>
-</div>
-</div>
-<div class="md-header-nav__source">
-<a class="md-source" href="https://github.com/slaclab/lume-epics/" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-</div>
-</nav>
-</header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="lume-epics" class="md-nav__button md-logo" href="https://lume-epics.github.io/" title="lume-epics">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
-</a>
-    lume-epics
-  </label>
-<div class="md-nav__source">
-<a class="md-source" href="https://github.com/slaclab/lume-epics/" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href=".." title="Overview">
-      Overview
-    </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Install/" title="Install">
-      Install
-    </a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
-<label class="md-nav__link" for="nav-3">
-      Tutorial
-      <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
-</span>
-</label>
-<nav aria-label="Tutorial" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-3">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
-        Tutorial
-      </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../BokehServer/" title="Bokeh Server">
-      Bokeh Server
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Jupyter/" title="Jupyter Notebook Demo">
-      Jupyter Notebook Demo
-    </a>
+<li class="nav-item">
+<a class="nav-link" href="https://github.com/slaclab/lume-epics/edit/master/docs/Server.md"><i class="fa fa-github"></i> Edit on GitHub</a>
 </li>
 </ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
-<label class="md-nav__link" for="nav-4">
-      Documentation
-      <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
-</span>
-</label>
-<nav aria-label="Documentation" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-4">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
-        Documentation
-      </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Layout/" title="Layout">
-      Layout
-    </a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" id="nav-4-2" type="checkbox"/>
-<label class="md-nav__link" for="nav-4-2">
-      Client
-      <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
-</span>
-</label>
-<nav aria-label="Client" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="nav-4-2">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
-        Client
-      </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Controller/" title="Controller">
-      Controller
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Monitors/" title="Monitors">
-      Monitors
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Widgets/" title="Widgets">
-      Widgets
-    </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Model/" title="Model">
-      Model
-    </a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        Server
-        <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
-</span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Server">
-      Server
-    </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server">
-    lume_epics.epics_server
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver">
-    CADriver
-  </a>
-<nav aria-label="CADriver" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver.read">
-    read()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver.set_output_pvs">
-    set_output_pvs()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver.write">
-    write()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.ModelLoader">
-    ModelLoader
-  </a>
-<nav aria-label="ModelLoader" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.ModelLoader.__init__">
-    __init__()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.PVAccessInputHandler">
-    PVAccessInputHandler
-  </a>
-<nav aria-label="PVAccessInputHandler" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.PVAccessInputHandler.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.PVAccessInputHandler.put">
-    put()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server">
-    Server
-  </a>
-<nav aria-label="Server" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.ca_thread_process">
-    ca_thread_process()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.initialize_ca_server">
-    initialize_ca_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.initialize_pva_server">
-    initialize_pva_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.start">
-    start()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.start_ca_server">
-    start_ca_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.start_pva_server">
-    start_pva_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.stop">
-    stop()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.build_pvdb">
-    build_pvdb()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </div>
 </div>
 </div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server">
-    lume_epics.epics_server
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver">
-    CADriver
-  </a>
-<nav aria-label="CADriver" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver.read">
-    read()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver.set_output_pvs">
-    set_output_pvs()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.CADriver.write">
-    write()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.ModelLoader">
-    ModelLoader
-  </a>
-<nav aria-label="ModelLoader" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.ModelLoader.__init__">
-    __init__()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.PVAccessInputHandler">
-    PVAccessInputHandler
-  </a>
-<nav aria-label="PVAccessInputHandler" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.PVAccessInputHandler.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.PVAccessInputHandler.put">
-    put()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server">
-    Server
-  </a>
-<nav aria-label="Server" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.ca_thread_process">
-    ca_thread_process()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.initialize_ca_server">
-    initialize_ca_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.initialize_pva_server">
-    initialize_pva_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.start">
-    start()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.start_ca_server">
-    start_ca_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.start_pva_server">
-    start_pva_server()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.Server.stop">
-    stop()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lume_epics.epics_server.build_pvdb">
-    build_pvdb()
-  </a>
-</li>
-</ul>
-</nav>
+<div class="container">
+<div class="row">
+<div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+<div class="navbar-header">
+<button class="navbar-toggler collapsed" data-target="#toc-collapse" data-toggle="collapse" title="Table of Contents" type="button">
+<span class="fa fa-angle-down"></span>
+</button>
 </div>
+<div class="navbar-collapse collapse card bg-secondary" id="toc-collapse">
+<ul class="nav flex-column">
+<li class="nav-item" data-level="1"><a class="nav-link" href="#epics-server">EPICS Server</a>
+<ul class="nav flex-column">
+<li class="nav-item" data-level="2"><a class="nav-link" href="#lume_epics.epics_server">lume_epics.epics_server</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#lume_epics.epics_server.CADriver">CADriver</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#lume_epics.epics_server.ModelLoader">ModelLoader</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#lume_epics.epics_server.PVAccessInputHandler">PVAccessInputHandler</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#lume_epics.epics_server.Server">Server</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#lume_epics.epics_server.build_pvdb">build_pvdb()</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
-</div>
-<div class="md-content">
-<article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/slaclab/lume-epics/edit/master/docs/Server.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
-</a>
+</div></div>
+<div class="col-md-9" role="main">
 <h1 id="epics-server">EPICS Server</h1>
 <div class="doc doc-object doc-module">
 <h2 class="hidden-toc" href="#lume_epics.epics_server" id="lume_epics.epics_server" style="visibility: hidden; width: 0; height: 0;">
@@ -543,15 +215,15 @@ variable.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>159
-160
-161
-162
-163
-164
-165
-166
-167</pre>
+<pre><span></span>169
+170
+171
+172
+173
+174
+175
+176
+177</pre>
 </div>
 </td>
 <td class="code">
@@ -607,20 +279,7 @@ set_output_pvs<span class="p">(</span><span class="bp">self</span><span class="p
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
+<pre><span></span>210
 211
 212
 213
@@ -629,7 +288,20 @@ set_output_pvs<span class="p">(</span><span class="bp">self</span><span class="p
 216
 217
 218
-219</pre>
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232</pre>
 </div>
 </td>
 <td class="code">
@@ -708,17 +380,7 @@ variable.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
+<pre><span></span>179
 180
 181
 182
@@ -734,7 +396,20 @@ variable.</p>
 192
 193
 194
-195</pre>
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre>
 </div>
 </td>
 <td class="code">
@@ -755,17 +430,20 @@ variable.</p>
         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Cannot update variable </span><span class="si">%s</span><span class="s2">. Output variables can only be updated via surrogate model callback."</span><span class="p">,</span> <span class="n">pvname</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">pvname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span><span class="p">[</span><span class="n">pvname</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">setParam</span><span class="p">(</span><span class="n">pvname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">updatePVs</span><span class="p">()</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Channel Access process variable </span><span class="si">%s</span><span class="s2"> updated with value </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">pvname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span>
 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> not found in server variables."</span><span class="p">,</span> <span class="n">pvame</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">pvname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span><span class="p">[</span><span class="n">pvname</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setParam</span><span class="p">(</span><span class="n">pvname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updatePVs</span><span class="p">()</span>
+
+        <span class="c1"># trigger model execution</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Channel Access process variable </span><span class="si">%s</span><span class="s2"> updated with value </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">pvname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> not found in server variables."</span><span class="p">,</span> <span class="n">pvame</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
 </code></pre>
 </div>
 </td>
@@ -849,19 +527,19 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244</pre>
+<pre><span></span>270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282</pre>
 </div>
 </td>
 <td class="code">
@@ -935,15 +613,15 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>252
-253
-254
-255
-256
-257
-258
-259
-260</pre>
+<pre><span></span>290
+291
+292
+293
+294
+295
+296
+297
+298</pre>
 </div>
 </td>
 <td class="code">
@@ -1010,52 +688,52 @@ output values to the output process variables.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
+<pre><span></span>300
 301
 302
 303
 304
 305
 306
-307</pre>
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345</pre>
 </div>
 </td>
 <td class="code">
@@ -1089,10 +767,10 @@ output values to the output process variables.</p>
 
             <span class="c1"># get dw and dh from model output</span>
             <span class="n">nd_array</span><span class="o">.</span><span class="n">attrib</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">"x_min"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">x_min</span><span class="p">,</span>
-                <span class="s2">"y_min"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">y_min</span><span class="p">,</span>
-                <span class="s2">"x_max"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">x_max</span><span class="p">,</span>
-                <span class="s2">"y_max"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">y_max</span><span class="p">,</span>
+                <span class="s2">"x_min"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">x_min</span><span class="p">),</span>
+                <span class="s2">"y_min"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">y_min</span><span class="p">),</span>
+                <span class="s2">"x_max"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">x_max</span><span class="p">),</span>
+                <span class="s2">"y_max"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">y_max</span><span class="p">),</span>
             <span class="p">}</span>
 
             <span class="n">output_provider</span> <span class="o">=</span> <span class="n">providers</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span>
@@ -1271,45 +949,7 @@ the driver.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368
-369
-370
-371
-372
-373
-374
-375
+<pre><span></span>375
 376
 377
 378
@@ -1334,7 +974,45 @@ the driver.</p>
 397
 398
 399
-400</pre>
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438</pre>
 </div>
 </td>
 <td class="code">
@@ -1412,127 +1090,6 @@ the driver.</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="lume_epics.epics_server.Server.ca_thread_process">
-<code class="highlight language-python">
-ca_thread_process<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exit_event</span><span class="p">)</span> </code>
-</h3>
-<div class="doc doc-contents">
-<p>Server thread for the Channel Access server that monitors the process 
-variable state and executes model.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>exit_event</code></td>
-<td><code>Event</code></td>
-<td>
-<p>Threading event to be marked on process exit.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>lume_epics/epics_server.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>503
-504
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536
-537
-538
-539</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">ca_thread_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exit_event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">""" Server thread for the Channel Access server that monitors the process </span>
-<span class="sd">    variable state and executes model.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        exit_event (Event): Threading event to be marked on process exit.</span>
-
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_ca_server</span><span class="p">()</span>
-
-    <span class="n">sim_state</span> <span class="o">=</span> <span class="p">{</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span><span class="p">}</span>
-
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-
-        <span class="c1"># process channel access transactions</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ca_server</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-
-        <span class="c1"># check if any input variable state has been updated</span>
-        <span class="c1"># if so, run model and update output variables</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">sim_state</span><span class="p">[</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="n">variable</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span>
-        <span class="p">):</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Input changes detected. Executing model and updating Channel Access process variables."</span><span class="p">)</span>
-
-          <span class="c1">#  model_variables = copy.deepcopy(self.input_variables)</span>
-            <span class="n">model_output</span> <span class="o">=</span> <span class="n">model_loader</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span><span class="p">)</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">ca_driver</span><span class="o">.</span><span class="n">set_output_pvs</span><span class="p">(</span><span class="n">model_output</span><span class="p">)</span>
-
-            <span class="n">sim_state</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_variables</span>
-            <span class="p">}</span>
-
-
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Terminating Channel Access server"</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="lume_epics.epics_server.Server.initialize_ca_server">
 <code class="highlight language-python">
 initialize_ca_server<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
@@ -1546,28 +1103,28 @@ output variable values.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424</pre>
+<pre><span></span>441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462</pre>
 </div>
 </td>
 <td class="code">
@@ -1615,45 +1172,7 @@ initialize_pva_server<span class="p">(</span><span class="bp">self</span><span c
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
+<pre><span></span>464
 465
 466
 467
@@ -1690,7 +1209,45 @@ initialize_pva_server<span class="p">(</span><span class="bp">self</span><span c
 498
 499
 500
-501</pre>
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539</pre>
 </div>
 </td>
 <td class="code">
@@ -1752,12 +1309,12 @@ initialize_pva_server<span class="p">(</span><span class="bp">self</span><span c
 
             <span class="n">nd_array</span> <span class="o">=</span> <span class="n">variable</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">NTNDArrayData</span><span class="p">)</span>
 
-            <span class="c1"># get dw and dh from model output</span>
+            <span class="c1"># get limits from model output</span>
             <span class="n">nd_array</span><span class="o">.</span><span class="n">attrib</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">"x_min"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">x_min</span><span class="p">,</span>
-                <span class="s2">"y_min"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">y_min</span><span class="p">,</span>
-                <span class="s2">"x_max"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">x_max</span><span class="p">,</span>
-                <span class="s2">"y_max"</span><span class="p">:</span> <span class="n">variable</span><span class="o">.</span><span class="n">y_max</span><span class="p">,</span>
+                <span class="s2">"x_min"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">x_min</span><span class="p">),</span>
+                <span class="s2">"y_min"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">y_min</span><span class="p">),</span>
+                <span class="s2">"x_max"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">x_max</span><span class="p">),</span>
+                <span class="s2">"y_max"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">y_max</span><span class="p">),</span>
             <span class="p">}</span>
 
             <span class="n">pv</span> <span class="o">=</span> <span class="n">SharedPV</span><span class="p">(</span><span class="n">nt</span><span class="o">=</span><span class="n">NTNDArray</span><span class="p">(),</span> <span class="n">initial</span><span class="o">=</span><span class="n">nd_array</span><span class="p">)</span>
@@ -1796,7 +1353,8 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>559
+<pre><span></span>558
+559
 560
 561
 562
@@ -1828,8 +1386,7 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
 588
 589
 590
-591
-592</pre>
+591</pre>
 </div>
 </td>
 <td class="code">
@@ -1854,20 +1411,20 @@ start<span class="p">(</span><span class="bp">self</span><span class="p">,</span
         <span class="bp">self</span><span class="o">.</span><span class="n">start_pva_server</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">monitor</span><span class="p">:</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-
-            <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-                <span class="c1"># Ctrl-C handling and send kill to threads</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Stopping servers"</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="k">if</span> <span class="s2">"ca"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocols</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">ca_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ca_server</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 
-                <span class="k">if</span> <span class="s2">"pva"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocols</span><span class="p">:</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Stopping pvAccess server"</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">pva_server</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Stopping servers"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">"ca"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocols</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ca_driver</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="s2">"pva"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocols</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pva_server</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </code></pre>
 </div>
 </td>
@@ -1889,16 +1446,13 @@ start_ca_server<span class="p">(</span><span class="bp">self</span><span class="
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>541
-542
-543
+<pre><span></span>543
 544
 545
 546
 547
 548
-549
-550</pre>
+549</pre>
 </div>
 </td>
 <td class="code">
@@ -1908,10 +1462,7 @@ start_ca_server<span class="p">(</span><span class="bp">self</span><span class="
 
 <span class="sd">    """</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Initializing channel access server"</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">ca_thread</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span>
-        <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ca_thread_process</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span><span class="p">,)</span>
-    <span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">ca_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_ca_server</span><span class="p">()</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Channel access server started"</span><span class="p">)</span>
 </code></pre>
 </div>
@@ -1934,12 +1485,12 @@ start_pva_server<span class="p">(</span><span class="bp">self</span><span class=
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>552
+<pre><span></span>551
+552
 553
 554
 555
-556
-557</pre>
+556</pre>
 </div>
 </td>
 <td class="code">
@@ -1971,7 +1522,8 @@ stop<span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>594
+<pre><span></span>593
+594
 595
 596
 597
@@ -1980,9 +1532,7 @@ stop<span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 600
 601
 602
-603
-604
-605</pre>
+603</pre>
 </div>
 </td>
 <td class="code">
@@ -1991,13 +1541,12 @@ stop<span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="sd">"""Stops the server.</span>
 
 <span class="sd">    """</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Stopping server"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Stopping server."</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="s2">"ca"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocols</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ca_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ca_driver</span><span class="o">.</span><span class="n">exit_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="s2">"pva"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocols</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Stopping PVAcess server"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pva_server</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </code></pre>
 </div>
@@ -2046,8 +1595,7 @@ channel access server.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span> 31
- 32
+<pre><span></span> 32
  33
  34
  35
@@ -2138,7 +1686,11 @@ channel access server.</p>
 120
 121
 122
-123</pre>
+123
+124
+125
+126
+127</pre>
 </div>
 </td>
 <td class="code">
@@ -2234,6 +1786,9 @@ channel access server.</p>
             <span class="n">pvdb</span><span class="p">[</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">variable</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span>
                 <span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">by_alias</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
+            <span class="k">if</span> <span class="n">variable</span><span class="o">.</span><span class="n">value_range</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">pvdb</span><span class="p">[</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s2">"hilim"</span><span class="p">]</span> <span class="o">=</span> <span class="n">variable</span><span class="o">.</span><span class="n">value_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">pvdb</span><span class="p">[</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s2">"lolim"</span><span class="p">]</span> <span class="o">=</span> <span class="n">variable</span><span class="o">.</span><span class="n">value_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">pvdb</span>
 </code></pre>
@@ -2246,52 +1801,57 @@ channel access server.</p>
 </div>
 </div>
 </div>
-</div>
-</article>
-</div>
-</div>
-</main>
-<footer class="md-footer">
-<div class="md-footer-nav">
-<nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../Model/" rel="prev" title="Model">
-<div class="md-footer-nav__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</div>
-<div class="md-footer-nav__title">
-<div class="md-ellipsis">
-<span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Model
-              </div>
-</div>
-</a>
-</nav>
-</div>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-          Material for MkDocs
-        </a>
+</div></div>
 </div>
 </div>
-</div>
+<footer class="col-md-12">
+<hr/>
+<p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
 </footer>
-</div>
-<script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-<script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
-        app = initialize({
-          base: "..",
-          features: [],
-          search: Object.assign({
-            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+<script defer="" src="../js/base.js"></script>
+<div aria-hidden="true" aria-labelledby="keyboardModalLabel" class="modal" id="mkdocs_keyboard_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 20%;">Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="help shortcut"><kbd>?</kbd></td>
+<td>Open this help</td>
+</tr>
+<tr>
+<td class="next shortcut"><kbd>n</kbd></td>
+<td>Next page</td>
+</tr>
+<tr>
+<td class="prev shortcut"><kbd>p</kbd></td>
+<td>Previous page</td>
+</tr>
+<tr>
+<td class="search shortcut"><kbd>s</kbd></td>
+<td>Search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
