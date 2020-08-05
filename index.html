@@ -176,7 +176,7 @@ class ExampleModel(SurrogateModel):
 <h2 id="variable-associations">Variable Associations</h2>
 <p>In the case that image variable axis bounds are dictated by the output of other variables, associations can be created between the bound scalar variable and the axis values of the image variables. This is accomplished by defining the <code>parent</code> attribute on the bound variables and assigning the corresponding variable name to the bound variable attributes of the image variable.</p>
 <p>For example:</p>
-<pre><code>x_min = ScalarOutputVariable(
+<pre><code class="python">x_min = ScalarOutputVariable(
             name="x_min"
         )
 
@@ -265,25 +265,24 @@ controller = Controller("pva")
 
 # build sliders for the command process variable database
 sliders = build_sliders(
-            input_variables["input1], 
-            input_variables["input2], 
+            [input_variables["input1"], input_variables["input2"]],
             controller, 
             prefix
         )
 
 # build value table
 value_table = ValueTable(
-                [output_variables["output1], output_variables["output2], 
+                [output_variables["output1"], output_variables["output2"]], 
                 controller, 
                 prefix
             )
 
 # build image plot
-value_table = ImagePlot([output_variables["output3]], controller, prefix)
+value_table = ImagePlot([output_variables["output3"]], controller, prefix)
 
 # build striptool
 striptool = Striptool(
-                [output_variables["output1], output_variables["output2], 
+                [output_variables["output1"], output_variables["output2"]], 
                 controller, 
                 prefix
             )
@@ -348,5 +347,5 @@ controller.close()
 </html>
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-08-05 15:22:36.129264+00:00
+Build Date UTC : 2020-08-05 15:32:21.867265+00:00
 -->
